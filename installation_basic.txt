@@ -23,4 +23,9 @@ $ git init
 $ git config --global user.name "Fazlul Hasan Siddiqui"
 $ git config --global user.email fazlul.siddiqui@duet.ac.bd
 # create a .gitignore file
+$ git status
+$ git add --all .
+$ git commit -m "duet payroll, first commit"
+$ git remote add origin https://github.com/duetpayroll/payroll.git
+$ git push -u origin master
 
