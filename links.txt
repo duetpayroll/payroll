@@ -1,0 +1,16 @@
+https://github.com/fhsiddiqui/duetpayroll.git
+https://github.com/duetpayroll/payroll.git
+
+Postgres settings:
+pass: payroll123
+Address:
+duetpayroll-266.postgres.pythonanywhere-services.com
+Port:
+10266
+Superuser role name:
+super
+
+Postgres db settings:
+db: payrolldb
+user: payrolluser
+pass: payrollpass

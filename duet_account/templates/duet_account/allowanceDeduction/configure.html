@@ -1,0 +1,67 @@
+{% extends 'duet_account_base.html' %}
+
+{% block content %}
+    <div class="panel panel-default">
+    <div class="panel-heading">
+       <h4> Configure
+                    <span class="object">Pay, Allowances and Deductions</span></h4>
+    </div>
+     <div class="panel-body configure-allowance-deduction section-edit">
+        <form class="form" action="" method="post">{% csrf_token %}
+            <div class="table-container">
+                <div class="manage-sheet-section allowance col-sm-6">
+                    <div class="body">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Pay & Allowances</th>
+                                    <th>Applicable</th>
+                                    <th>Order</th>
+                                 </tr>
+                            </thead>
+                            <tbody>
+                                {% for form in allowanceFormSet %}
+                                <tr>
+                                    <td>{{form.instance.name}}</td>
+                                    {% for field in form %}
+                                        <td>{{ field }}</td>
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}     
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="salary-sheet-section deduction col-sm-6">
+                    <div class="body">
+                        <table class="table table-condensed table-hover">
+                            <thead>
+                                    <tr>
+                                        <th>Deductions</th>
+                                        <th>Applicable</th>
+                                        <th>Order</th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                                {% for form in deductionFormSet %}
+                                    <tr>
+                                        <td>{{form.instance.name}}</td>
+                                        {% for field in form %}
+                                            <td>{{ field }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="button-groups col-sm-offset-10">
+                    <input class = 'btn btn-warning' type="reset">
+                    <button type="submit" class="btn btn-success"> Submit </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+{% endblock %}

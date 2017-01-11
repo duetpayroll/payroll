@@ -1,0 +1,20 @@
+{% extends 'employee_base.html' %}
+
+{% block content %}
+    {% load extras %}
+    <div class="employee-app">
+        <div class='employee-detail-section'>
+            <div class='vertical-menu  col-sm-2'>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="{% active_url request 'employee-profile' %}" parent_id="employee_profile"><a href=
+                                                                                                 "{% url 'employee-profile' %}"><span class='glyphicon
+                    glyphicon-user'></span> Basic Information</a></li>
+                </ul>
+            </div>
+            <div class="employee-detail-content col-sm-10">
+                {% block employee_detail_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

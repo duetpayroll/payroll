@@ -1,0 +1,23 @@
+{% extends 'duet_account_base.html' %}
+
+
+{% block content %}
+	<div class="section-edit panel panel-default">
+	{% if title %}
+		<div class="panel-heading title">
+            <h4>
+                {{title}}
+            </h4>
+		</div>
+	{% endif %}
+		<div class="panel-body">
+			<form class="form" target="_blank" action="" method="post">{% csrf_token %}
+				  {% include "base/form.html" %}
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success"> Submit </button>
+
+				</div>
+			</form>
+		</div>
+</div>
+{% endblock %}

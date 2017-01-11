@@ -1,0 +1,10 @@
+<form action="" method="post">{% csrf_token %}
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<h4>Delete "{{ object }}"?</h4>
+		</div>
+	<div class="panel-body"> 
+		<p>Are you sure you want to delete "{{ object }}" ?</p>
+		<input class="col-sm-offset-2 btn btn-warning" type="submit" value ="Confirm"/>
+	</div>
+</form>

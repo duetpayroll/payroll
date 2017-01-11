@@ -1,0 +1,12 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+
+{% block employee_detail_content %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h4>Generate Salary Sheet</h4>
+      </div>
+      <div class="panel-body">
+          {% include "duet_account/salarySheet/generate_salary_sheet_section.html" %}
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,112 @@
+<div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          GPF Subscriptions and Advance Installments
+      </div>
+      <div class="panel-body">
+      <table class="table table-condensed table-hover table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>GPF deductions</th>
+                <th>Interest</th>
+                <th>GPF Advance Inst (1)</th>
+                <th>Interest</th>
+                <th>GPF Advance Inst (2)</th>
+                <th>Interest</th>
+             </tr>
+        </thead>
+            <tbody>
+            {% for entry in details.entries %}
+                <tr>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.gpf_subscription.deduction|floatformat:2  }}</td>
+                    <td>{{ entry.gpf_subscription.interest|floatformat:2  }}</td>
+                    {% for installment in entry.gpf_advance_installments %}
+                        <td>{{ installment.deduction|floatformat:2  }}</td>
+                        <td>{{ installment.interest|floatformat:2  }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-5 panel panel-default">
+      <div class="panel-heading">
+        GPF Advances
+      </div>
+      <div class="panel-body">
+        <table class="table table-condensed table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Id</th>
+                <th>Amount</th>
+                <th>Excess</th>
+                <th>Closing Date</th>
+             </tr>
+        </thead>
+        <tbody>
+            {% for gpf_advance in details.gpf_advances %}
+                <tr>
+                    <td>{{ gpf_advance.advance.date }}</td>
+                    <td>{{ gpf_advance.advance.id }}</td>
+                    <td>{{ gpf_advance.advance.amount|floatformat:2 }}</td>
+                    <td>{{ gpf_advance.excess|floatformat:2 }}</td>
+                    <td>{{ gpf_advance.advance.closing_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+      </div>
+    </div>
+    <div class="col-sm-7 panel panel-default">
+          <div class="panel-heading">
+            Summary Table
+          </div>
+          <div class="panel-body">
+            <table class="table table-condensed">
+            <tbody>
+             <tr>
+                 <th>Total GPF Subscription Deduction</th>
+                 <td>{{ details.summary.total_gpf_deduction|floatformat:2  }}</td>
+                 <th>Total GPF Subscription Interest</th>
+                 <td>{{ details.summary.total_gpf_interest|floatformat:2  }}</td>
+             </tr>
+             <tr>
+                 <th>Total GPF Advance Deduction</th>
+                 <td>{{ details.summary.total_advance_deduction|floatformat:2  }}</td>
+                 <th>Total GPF Advance Interest</th>
+                 <td>{{ details.summary.total_advance_interest|floatformat:2  }}</td>
+             </tr>
+             <tr>
+                 <th>Total Deduction</th>
+                 <th>{{ details.summary.total_deduction|floatformat:2  }}</th>
+                 <th>Interest on Initial Credit</th>
+                 <td>{{ details.summary.initial_credit_interest|floatformat:2  }}</td>
+             </tr>
+            <tr>
+                <td></td><td></td>
+                 <th>Total Interest</th>
+                 <th>{{ details.summary.total_interest|floatformat:2  }}</th>
+            </tr>
+              <tr>
+                 <th>Initial Credit</th>
+                 <th>{{ details.summary.initial_credit|floatformat:2  }}</th>
+            </tr>
+             <tr>
+                 <th>Excess</th>
+                 <th>{{ details.summary.total_excess|floatformat:2  }}</th>
+            </tr>
+             <tr>
+                 <th>Total Credit</th>
+                 <th>{{ details.summary.total_credit|floatformat:2  }}</th>
+            </tr>
+
+         </tbody>
+            </table>
+          </div>
+
+          </div>
+</div>

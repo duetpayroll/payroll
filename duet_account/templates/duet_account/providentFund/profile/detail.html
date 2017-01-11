@@ -1,0 +1,36 @@
+{% extends 'account_base.html' %}
+
+{% block content %}
+    <div class="section-detail">
+	    <div class="header">
+	        <span class="title">
+	            Detail -
+	            <span class="object">Provident Fund Profile</span>
+	        </span>
+	    </div>
+	    <div class="table-container">
+	        <table class="table">
+	            <col class="label"></col>
+	            <col class="value"></col>
+	            <tbody>
+	            	<tr>
+	                    <td class="label">Employee</td>
+	                    <td class="value"> {{ providentFundProfile.employee }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">Credit</td>
+	                    <td class="value"> {{ providentFundProfile.credit }}</td>
+	                </tr>
+	                <tr>
+	                    <td class="label">Percentage </td>
+	                    <td class="value"> {{ providentFundProfile.percentage }} % </td>
+	                </tr>
+	                <tr>
+	                    <td class="label">Interest Taken :</td>
+	                    <td class="value"> {{ providentFundProfile.has_interest }}</td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </div>
+    </div>
+{% endblock %}

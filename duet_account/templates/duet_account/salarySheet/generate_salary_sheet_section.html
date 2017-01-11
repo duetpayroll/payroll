@@ -1,0 +1,85 @@
+<div class="salary-sheet section-edit">
+    <form class="form" action="" method="post">{% csrf_token %}
+        <div class="table-container">
+            <div class="salary-sheet-section salary-sheet right">
+                {% for error in salary_sheet_form.non_field_errors %}
+                    <div class="alert alert-error">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+                <label class="control-label"> {{ salary_sheet_form.date.label_tag }}</label>
+                <span >{{ salary_sheet_form.date }}</span>
+                <span class="text-danger small">{{ salary_sheet_form.date.errors }}</span>
+                 <label class="control-label"> {{ salary_sheet_form.is_withdrawn.label_tag }}</label>
+                <span >{{ salary_sheet_form.is_withdrawn }}</span>
+        
+            </div>
+            <div class="clear"></div>
+            <div class="salary-sheet-section allowance col-sm-5">
+                <div class="heading">
+                    <span> Pay and Allowances</span>
+                </div>
+                
+                <table class="table table-condensed table-hover">
+                {% for form in allowanace_formset %}
+                        <tr>
+                            <td>{{form.title}}</td>
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-error">
+                                    <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                            <td>
+                            {% for field in form.visible_fields %}
+                                <label> {{ field.label_tag }}</label>
+                                <span class="text-danger small">{{ field.errors }}</span>
+                                {{ field }}
+                            {% endfor %}
+                            </td>
+                        </tr>
+                {% endfor %}
+                </table>
+
+            </div>
+
+            <div class="salary-sheet-section deduction col-sm-7">
+                <div class="heading">
+                    <span> Deductions</span>
+                </div>
+                <div class="body">
+                    <table class="table table-condensed table-hover">
+                    {% for form in  deduction_formset %}
+                            <tr>
+                                <th>
+                                    {{form.title}}
+                                    {% for error in form.non_field_errors %}
+                                    <div class="alert alert-error">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                    {% endfor %}
+                                </th>
+                                <td>
+                                {% for field in form.visible_fields %}
+                                    <label> {{ field.label_tag }}</label>
+                                    <span class="text-danger small">{{ field.errors }}</span>
+                                    {{ field }}
+                                {% endfor %}
+                                </td>
+                            </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <div class="clear">
+            <div>
+                <label class="control-label"> {{ salary_sheet_form.comment.label_tag }}</label>
+                <div >{{ salary_sheet_form.comment }}</div>
+            </div>
+        
+        </div>
+        <div class="button-groups col-sm-offset-9">
+            <input class = 'btn btn-warning' type="reset">
+            <button type="submit" class="btn btn-success"> Submit </button>
+        </div>
+    </form>
+</div>

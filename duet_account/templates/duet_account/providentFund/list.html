@@ -1,0 +1,31 @@
+{% extends 'duet_account/list.html' %}
+{% load blocktrans trans from i18n %}
+
+
+{% block table.tbody %}
+
+ 	<tbody>
+        {% for row in table.page.object_list|default:table.rows %} {# support pagination #}
+            <tr {{ row.attrs.as_html }}>
+                {% for column, cell in row.items %}
+                    <td {{ column.attrs.td.as_html }}>{{ cell }}</td>
+                {% endfor %}
+                <td class="action">
+                    {% for action in table.attrs.actions %}
+                    <a class="btn btn-default" data-toggle="tooltip" title ='{{action.tooltip}}' href="{% url action.url pk=row.record.id %}">
+                        <span class='{{ action.icon }}'></span> 
+                    </a>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% empty %}
+            {% block table.tbody.empty_text %}
+                {% trans "no results" as table_empty_text %}
+                <tr>
+                    <td colspan="{{ table.columns|length }}">{{ table.empty_text|default:table_empty_text }}</td>
+                </tr>
+            {% endblock table.tbody.empty_text %}
+        {% endfor %}
+    </tbody>
+    
+{% endblock %}

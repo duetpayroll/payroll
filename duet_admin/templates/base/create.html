@@ -1,0 +1,23 @@
+<div class="section-edit panel panel-default">
+	{% if title %}
+		<div class="panel-heading title">
+            <h4>
+                {{title}}
+                {% if object %}
+                    <span class="object">{{object}}</span>
+                {% endif %}
+            </h4>
+		</div>
+	{% endif %}
+		<div class="panel-body">
+			<form class="form" action="" method="post">{% csrf_token %}
+				  {% include "base/form.html" %}
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success"> Submit </button>
+                    {% if cancel_url %}
+						<a class="btn btn-primary" href="{% url cancel_url %}">Cancel</a>
+					{% endif %}
+				</div>
+			</form>
+		</div>
+</div>

@@ -1,0 +1,15 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+
+{% block employee_detail_content %}
+	<form action="" method="post">{% csrf_token %}
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<h4>Freeze "{{ object }}"?</h4>
+		</div>
+	<div class="panel-body">
+		<p>Are you sure you want to freeze "{{ object }}" ?</p>
+        <p>Once you freeze it, you cannot be able to update/delete it.</p>
+		<input class="col-sm-offset-2 btn btn-warning" type="submit" value ="Freeze"/>
+	</div>
+</form>
+{% endblock %}

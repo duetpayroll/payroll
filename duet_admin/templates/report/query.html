@@ -1,0 +1,19 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+    {% load extras %}
+    <div class="report">
+      <div class="report-heading">
+          <div style="text-align: center"><h4>{{ details.html.title|safe }}</h4></div>
+      </div>
+    <div class="report-extra">
+        {{ details.html.extra|safe }}
+    </div>
+      <div class="report-body">
+          {{ details.html.body|safe }}
+      </div>
+
+    </div>
+
+
+{% endblock %}

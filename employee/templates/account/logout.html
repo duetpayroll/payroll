@@ -1,0 +1,23 @@
+{% extends 'employee/employee/finance_base.html' %}
+{% load i18n %}
+
+{% block employee_detail_content %}
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4>Sign Out</h4>
+      </div>
+      <div class="panel-body">
+        <p> Are you sure you want to sign out?</p>
+        <form method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+            <div class="col-sm-offset-1 col-sm-10">
+                <button type="submit" class="btn btn-warning">{% trans 'Sign Out' %}</button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+{% endblock %}

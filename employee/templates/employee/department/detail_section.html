@@ -1,0 +1,44 @@
+<div class="panel panel-success section-detail">
+    <div class="panel-heading header">
+        <h4>
+            Detail -
+            <span class="object"> {{department}}</span>
+        </h4>
+    </div>
+    <div class="panel-body table-container">
+        <table class="table">
+            <col class="label"></col>
+            <col class="value"></col>
+            <tbody>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td class="value"> {{ department.name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Code:</td>
+                    <td class="value"> {{ department.code }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Acronym:</td>
+                    <td class="value"> {{ department.acronym }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Type:</td>
+                    <td class="value"> {{ department.get_type_display }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Description:</td>
+                    <td class="value"> {{ department.description }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Created At:</td>
+                    <td class="value"> {{ department.created_at }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Modified At:</td>
+                    <td class="value"> {{ department.modified_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

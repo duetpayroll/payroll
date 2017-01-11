@@ -1,0 +1,77 @@
+1. 	mkdir djangogirls
+2. 	cd djangogirls/
+3. 	sudo apt-get install python3-venv [required for ubuntu 14.04 & later; or sudo pip install --upgrade virtualenvwrapper]
+4. 	python3 -m venv myenv [or virtualenv --python=python3.4 myvenv]
+5. 	source myenv/bin/activate
+6. 	pip install django==1.8
+7. 	sudo	apt-get	install	git
+8.	[Create a GitHub account at https://github.com/]
+9.	[Create a PythonAnywhere	beginner account at https://www.pythonanywhere.com/pricing/]
+10. django-admin startproject mysite .
+11. update/add mysite/settings.py: 
+	TIME_ZONE = 'Asia/Dhaka'
+	STATIC_ROOT =   os.path.join(BASE_DIR,  'static')
+12. setup a database in mysite/settings.py
+13. python manage.py migrate
+14. python manage.py runserver; open http://127.0.0.1:8000/
+15. python manage.py startapp blog
+16. add 'blog' under INSTALLED_APPS in mysite/settings.py
+17. update blog/models.py (to creating a blog post model)
+18. Create tables for models in your database: 
+		python manage.py makemigrations blog
+		python manage.py migrate blog
+19.	update blog/admin.py (to add, edit and delete posts we've just modeled)
+20.	python manage.py createsuperuser
+21. python manage.py runserver; open http://127.0.0.1:8000/admin
+22.	git config under djangogirls/:
+		git init
+		git config --global user.name "ani"
+		git config --global user.email "siddiqui.cse@gmail.com"
+23.	create a file called .gitignore in djangogirls/ & add some contents
+24.	git status [to check all changes]
+25.	git add -A .
+26.	git commit -m "My Django Girls app, first commit"
+27.	Pushing our code to https://github.com/ 
+	create a new repository, giving it a name "my-first-blog"
+	git remote add origin https://github.com/fhsiddiqui/my-first-blog.git
+	git push -u origin master
+28. Pulling	our code down on PythonAnywhere; type the folllowing in the PythonAnywhere bash console:
+	git clone https://github.com/fhsiddiqui/my-first-blog.git
+	tree my-first-blog
+29.	Creating a virtualenv on PythonAnywhere:
+	cd	my-first-blog
+	virtualenv	--python=python3.4	myvenv
+	source	myvenv/bin/activate
+	pip install django==1.8 whitenoise
+	python manage.py collectstatic
+30.	Creating the database on PythonAnywhere:
+	python manage.py migrate
+	python manage.py createsuperuser
+31.	Publishing our blog as a web app
+32.	update mysite/urls.py
+33.	create blog/urls.py
+34.	create blog/views.py
+35. create blog/template/blog/post_list.html template
+
+
+# Install PostgreSQL on ubuntu 15.10#
+=====================================
+[link: http://www.unixmen.com/install-postgresql-9-4-and-phppgadmin-on-ubuntu-15-10/]
+1. sudo apt-get install postgresql postgresql-contrib
+2. sudo -u postgres psql postgres
+3. postgres=# CREATE EXTENSION adminpack;
+4. sudo -u postgres createuser -D -A -P anipsql
+5. sudo -u postgres createdb -O anipsql anidb
+# [for phppgadmin]
+6. sudo nano /etc/postgresql/9.4/main/pg_hba.conf [do change something]
+7. [sudo systemctl restart postgresql] or [sudo service postgresql restart] 
+8. sudo nano /etc/postgresql/9.4/main/postgresql.conf
+9. [sudo systemctl restart postgresql] or [sudo service postgresql restart]
+10.sudo apt-get install phppgadmin
+11. sudo nano /etc/phppgadmin/config.inc.php [do some change]
+12. sudo service postgresql restart
+13. sudo service apache2 restart
+#...
+6. sudo apt-get install libpq-dev python-dev
+7. pip install psycopg2
+8. python -c "import psycopg2"

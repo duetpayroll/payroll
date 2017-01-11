@@ -1,0 +1,26 @@
+sudo apt-get update
+sudo apt-get install python3-pip [or sudo apt-get -y install python-pip]
+sudo pip install pip --upgrade
+sudo pip install virtualenv
+
+1. mkdir trydjango19env
+2. cd trydjango19env
+3. virtualenv [--python=python3.5] .
+4. source bin/activate
+5. pip install django[==1.9] # pip freeze; python --version; django-admin --version
+6. django-admin[.py] startproject trydjango19
+7. mv trydjango19 src
+8. cd src
+9. python manage.py migrate
+10. python manage.py createsuperuser
+11. python manage.py runserver # open http://127.0.0.1:8000/
+12. python manage.py startapp blog
+13. add 'blog' under INSTALLED_APPS in mysite/settings.py
+
+
+Deploy:
+$ git init
+$ git config --global user.name "Fazlul Hasan Siddiqui"
+$ git config --global user.email fazlul.siddiqui@duet.ac.bd
+# create a .gitignore file
+

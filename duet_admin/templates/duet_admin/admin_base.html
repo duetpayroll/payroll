@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block navigation_panel %}
+<div class="navbar-header">
+  <a class="navbar-brand" href="#">Duet Payroll Service</a>
+</div>
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Home</a></li>
+    <li class="dropdown">
+      <a href="dropdown-toggle" data-toggle='dropdown'> Employee<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url 'duet_admin:employee-list' %}">Employee</a></li>
+        <li><a href="{% url 'duet_admin:department-list' %}">Department</a></li>
+        <li><a href="{% url 'duet_admin:designation-list' %}">Designation</a></li>
+      </ul>
+    </li>
+    <li class="dropdown"><a href="dropdown-toggle" data-toggle='dropdown'> Account<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{% url 'duet_admin:allowancededuction-list' %}">Pay, Allownce and Deduction</a></li>
+        <li><a href="{% url 'duet_admin:grade-list' %}">Salary Scale</a></li>
+        <li><a href="{% url 'duet_admin:employee-class-list' %}">Employee Class</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>    
+ {% endblock %}

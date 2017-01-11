@@ -1,0 +1,9 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+
+{% block employee_detail_content %}
+	<div class="panel panel-info">
+      <div class="panel-heading"> Update/Delete/Freeze Operation Not Allowed</div>
+      <div class="panel-body">You cannot update/delete this {{object}}. Because it has been freezed/closed.</div>
+    </div>
+
+{% endblock %}

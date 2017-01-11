@@ -1,0 +1,102 @@
+{% extends 'report/base.html' %}
+
+{% block content %}
+    {% load extras %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          {% include "duet_account/employee/detailSection.html" %}
+      </div>
+      <div class="panel-body">
+        <table class="table table table-condensed table-striped table-bordered">
+        <tbody>
+            <tr>
+                <th style="min-width: 110px" class="text-center" rowspan="2">Month </th>
+                <th class="text-center" colspan="{{ details.header.allowance_no }}"> Pay & Allowances</th>
+                <th class="text-center" colspan="{{ details.header.deduction_no }}"> Deductions</th>
+                <th class="text-center" rowspan="2">Net Pay</th>
+            </tr>
+            <tr>
+
+            {% for a in details.header.allowances %}
+                {% for key,value in a.items %}
+                    <th class="text-center">
+                       {{ value }}
+                    </th>
+                {% endfor %}
+            {% endfor %}
+            <th class="text-center">
+                Gross Total
+            </th>
+            {% for a in details.header.deductions %}
+                {% for key,value in a.items %}
+                    <th class="text-center">
+                       {{ value }}
+                    </th>
+                {% endfor %}
+            {% endfor %}
+            <th class="text-center">
+                Total Deduction
+            </th>
+            </tr>
+        {% for entry in details.entries %}
+            <tr>
+                <th>
+                    {{ entry.date }}
+                </th>
+             {% for a in details.header.allowances %}
+                {% for key,value in a.items %}
+                    <td class="text-right">
+                       {{ entry.allowances|keyvalue:key}}
+                    </td>
+                {% endfor %}
+            {% endfor %}
+            <td class="text-right">
+                {{ entry.gross_total }}
+            </td>
+          {% for a in details.header.deductions %}
+                {% for key,value in a.items %}
+                    <td class="text-right">
+                       {{ entry.deductions|keyvalue:key }}
+                    </td>
+                {% endfor %}
+            {% endfor %}
+            <td class="text-right">
+                {{ entry.total_deduction }}
+            </td>
+            <td class="text-right">
+                {{ entry.net_pay }}
+            </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th>Total</th>
+                {% for a in details.header.allowances %}
+                        {% for key,value in a.items %}
+                            <td class="text-right">
+                               {{ details.total.allowances|keyvalue:key }}
+                            </td>
+                        {% endfor %}
+                {% endfor %}
+
+            <th class="text-right">
+                {{ details.total.gross_total }}
+            </th>
+            {% for a in details.header.deductions %}
+                {% for key,value in a.items %}
+                    <td class="text-right">
+                       {{ details.total.deductions|keyvalue:key }}
+                    </td>
+                {% endfor %}
+                {% endfor %}
+        <th class="text-right">{{ details.total.total_deduction }}</th>
+        <th class="text-right">{{ details.total.net_pay }}</th>
+        </tr>
+        </tbody>
+    </table>
+      </div>
+    </div>
+
+
+
+
+{% endblock %}

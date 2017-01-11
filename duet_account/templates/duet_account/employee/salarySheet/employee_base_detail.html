@@ -1,0 +1,18 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+
+{% block employee_detail_content %}
+    <div class="report">
+      <div class="report-heading">
+          <div style="text-align: center">
+              <h4>Payslip</h4>
+
+                {% if not object.is_freezed %}
+                    <span class=" detail-field">
+                    <span class="label">( Draft )</span>
+                </span>
+                {% endif %}
+
+          </div>
+      </div>
+    {% include "duet_account/salarySheet/detail_section.html" %}
+{% endblock %}

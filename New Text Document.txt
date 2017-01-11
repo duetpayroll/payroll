@@ -1,0 +1,8 @@
+django_tables2
+django_filters
+crispy_forms
+autoslug
+braces
+allauth
+allauth.account
+allauth.socialaccount

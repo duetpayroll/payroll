@@ -1,0 +1,114 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="employee-info left">
+                    <h4>{{ employee }}</h4>
+                    <p> {{ employee.designation }}, {{ employee.department.name }}</p>
+        </div>
+        <div class="right">
+             <div class=" detail-field">
+                    <span class="label">Month Ending:</span>
+                    <span class="value">{{object.date|date:"F, Y"}} </span>
+             </div>
+             <div class=" detail-field">
+                    <span class="label">Acc Number:</span>
+                    <span class="value">{{object.account_number}} </span>
+             </div>
+        </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="panel-body">
+        <div class="salary-sheet-details">
+          <div class="salary-sheet-section allowance col-sm-6">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <th>Allowances</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                    {% for allowance in allowances%}
+                            <tr>
+                                <td>{{allowance.allowance_deduction}}</td>
+                                <td>{{allowance.amount}}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+          <div class="salary-sheet-section allowance col-sm-6">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <th>Deductions</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                    {% if gpf_details.gpf_subscription %}
+                    <tr>
+                        <td>GPF Subscription</td>
+                        <td>{{gpf_details.gpf_subscription.deduction}}</td>
+                    </tr>
+                    {% endif %}
+                    {% for gpf_installment in gpf_details.gpf_advance_installments %}
+                    <tr>
+                        <td>GPF Advance- {{gpf_installment.gpf_advance.id}} (install:
+                            {{gpf_installment.installment_no}}/{{ gpf_installment.gpf_advance.no_of_installments }})
+                        </td>
+                         <td> {{gpf_installment.deduction}} </td>
+                    </tr>
+                    {% endfor %}
+                    {% for deduction in deductions%}
+                            <tr>
+                                <td>{{deduction.allowance_deduction}}</td>
+                                <td>{{deduction.amount}}</td>
+                            </tr>
+                    {% endfor %}
+                {% if home_loan_installment %}
+                    <tr>
+                        <td>Home Loan- {{ home_loan_installment.home_loan.id }} (install:
+                            {{ home_loan_installment.installment_no }}/
+                            {{ home_loan_installment.home_loan.no_of_installments }})</td>
+                        <td>{{ home_loan_installment.deduction }}
+                        </td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+    </div>
+    <div class="panel-footer">
+       <div class="salary-sheet-summary">
+           <table class="table table-condensed">
+               <tbody>
+                <tr>
+                    <th>Total Payment: </th>
+                    <td>{{object.net_allowance}}</td>
+                    <th>Total Deduction: </th>
+                    <td>{{object.net_deduction}}</td>
+                    <th>Net Payment: </th>
+                    <td> {{object.total_payment}}</td>
+                </tr>
+
+               </tbody>
+           </table>
+           <table class="table">
+               <tbody>
+                <tr>
+                    <th>Comment</th>
+                   <td colspan="5">{{ object.comment }}</td>
+                </tr>
+               <tr>
+                    <th>Scale</th>
+                   <td colspan="5">{{ object.grade.description }}</td>
+                </tr>
+               </tbody>
+           </table>
+        </div>
+
+    </div>
+
+</div>
+

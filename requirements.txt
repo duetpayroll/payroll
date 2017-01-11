@@ -1,0 +1,8 @@
+Django==1.9
+django-tables2
+django-filter
+django-crispy-forms
+django-autoslug
+django-braces
+django-allauth
+django-wkhtmltopdf

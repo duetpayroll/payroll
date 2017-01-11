@@ -1,0 +1,47 @@
+{% extends 'employee/employee/finance_base.html' %}
+
+{% block employee_detail_content %}
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Pay, Allowances & Deductions</h4>
+    </div>
+
+    <div class="panel-body">
+        <div class="salary-sheet-details">
+          <div class="salary-sheet-section allowance col-sm-6">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <th>Allowances</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                    {% for allowance in allowances %}
+                            <tr>
+                                <td>{{allowance.name}}</td>
+                                <td>{{allowance.amount}}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+          <div class="salary-sheet-section allowance col-sm-6">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <th>Deductions</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                     {% for deduction in deductions%}
+                            <tr>
+                                <td>{{deduction.name}}</td>
+                                <td>{{deduction.amount}}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+   {% endblock %}

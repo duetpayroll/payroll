@@ -1,0 +1,10 @@
+{% extends 'account_base.html' %}
+
+
+{% block content %}
+	{% include 'account/employee/detailSection.html' with employee=employee %}
+	<div>
+		{{provident_fund_profile.credit}}
+	</div>
+	{% include "common/create.html" %}
+{% endblock %}

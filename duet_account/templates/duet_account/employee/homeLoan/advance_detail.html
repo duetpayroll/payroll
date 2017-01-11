@@ -1,0 +1,14 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block employee_detail_content %}
+    <div class="panel panel-default home-loan-detail-section">
+        <div class="panel-heading">
+            {% include "duet_account/homeLoan/detailSection.html" %}
+        </div>
+        <div class="panel-body">
+          {% include "base/list.html" %}
+        </div>
+    </div>
+{% endblock %}
+

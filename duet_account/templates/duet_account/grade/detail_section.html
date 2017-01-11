@@ -1,0 +1,36 @@
+<div class="panel panel-success section-detail">
+    <div class="panel-heading header">
+        <h4>
+            Detail -
+            <span class="object"> {{grade}}</span>
+        </h4>
+    </div>
+    <div class="panel-body table-container">
+        <table class="table">
+            <col class="label">
+            <col class="value">
+            <tbody>
+                <tr>
+                    <td class="label">Grade No:</td>
+                    <td class="value"> {{ grade.grade_no }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Description:</td>
+                    <td class="value"> {{ grade.description }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Employee Class:</td>
+                    <td class="value"> {{ grade.employee_class }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Created At:</td>
+                    <td class="value"> {{ grade.created_at }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Modified At:</td>
+                    <td class="value"> {{ grade.modified_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

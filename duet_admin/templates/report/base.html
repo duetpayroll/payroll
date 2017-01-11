@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/duet_account/style.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/employee/style.css' %}" rel="stylesheet" media="screen">
+</head>
+<body>
+<style>
+    @media print {
+  #printPageButton {
+    display: none;
+  }
+        .right {
+            float: right;
+        }
+        .left {
+            float: left;
+        }
+        .detail-field .label {
+            font-weight: bold;
+            color: black;
+            font-size: small;
+            border: 0px;
+        }
+        .clear {
+            clear: both;
+        }
+        .label {
+            border: 0px;
+        }
+}
+</style>
+    <div class="cls-report report-container">
+        {% block header %}
+            <div class="header-block" style="text-align: center">
+              <div> <span class="title">Dhaka University of Engineering and Technology</span> </div>
+              <div><span class="subtitle"> Gazipur-1700, Bangladesh</span></div>
+            </div>
+            <div id="printPageButton" class="btn-group right" style="padding-right: 10px">
+              <button type="button" class="btn btn-primary" onclick="javascript:window.print()"><span class="glyphicon
+              glyphicon-print"></span></button>
+            </div>
+
+    {% endblock %}
+    {% block content %}
+
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+    </div>
+
+</body>
+</html>

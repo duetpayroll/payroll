@@ -1,0 +1,44 @@
+.employee-detail-section .section-edit,.employee-detail-section .section-detail {
+  box-sizing: border-box;
+}
+.employee-detail-section .vertical-menu span.glyphicon {
+  padding-right: 5px;
+}
+.salary-sheet-summary {
+  padding: 10px;
+
+}
+.salary-sheet-summary .detail-field {
+  padding-right: 5px;
+}
+.detail-field .label {
+  font-weight: bold;
+  color: black;
+  font-size: small;
+}
+.configure-allowance-deduction.section-edit {
+    width: 90%
+}
+
+.salary-sheet.section-edit, .manage-sheet.section-edit {
+  width: 100%;
+  margin-top: 20px; 
+}
+
+
+.salary-sheet .salary-sheet-section .heading {
+  font-weight: bold;
+}
+
+.salary-sheet textarea {
+  width: 100%;
+  height:100px;
+}
+
+.employee-detail-content .gpf-advance-detail-section.panel>.panel-body {
+  padding: 0;
+}
+
+.employee-detail-content .gpf-advance-detail-section.panel>.panel-body .panel{
+  margin-bottom: 0;
+}

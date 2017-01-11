@@ -1,0 +1,48 @@
+<div class="home-loan-details-section">
+    <div class="body">
+        <div>
+            <div class="name col-sm-4">{{ home_loan }}</div>
+            <div class="clear"></div>
+        </div>
+        <div>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <td class="label">Amount : </td>
+                        <td>{{home_loan.amount}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Date: </td>
+                        <td>{{home_loan.date}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4">
+            <table>
+                    <tr>
+                        <td class="label">No of Installments : </td>
+                        <td>{{home_loan.no_of_installments}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Monthly Payment : </td>
+                        <td>{{home_loan.monthly_payment}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <table>
+                    <tr>
+                        <td class="label">Closing Date :  </td>
+                        <td>{{home_loan.closing_date}}</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Closed: </td>
+                        <td>{{home_loan.is_closed}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+        

@@ -1,0 +1,71 @@
+<div class="section-detail">
+    <div class="table-container">
+        <table class="table">
+            <col class="label">
+            <col class="value">
+            <tbody>
+                <tr>
+                    <td class="label">First Name:</td>
+                    <td class="value"> {{ employee.first_name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Name:</td>
+                    <td class="value"> {{ employee.last_name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Email:</td>
+                    <td class="value"> {{ employee.email }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Gender:</td>
+                    <td class="value"> {{ employee.get_gender_display }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Date of Birth:</td>
+                    <td class="value"> {{ employee.dob }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td class="value"> {{ employee.address }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Contact:</td>
+                    <td class="value"> {{ employee.contact }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Category:</td>
+                    <td class="value"> {{ employee.get_category_display }}</td>
+                </tr>
+
+                <tr >
+                    <td class="label">Designation:</td>
+                    <td class="value"> {{ employee.designation }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Department:</td>
+                    <td class="value"> {{ employee.department }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Joining Date:</td>
+                    <td class="value"> {{ employee.joining_date }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Account No:</td>
+                    <td class="value"> {{ employee.account_number }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Tax Id:</td>
+                    <td class="value"> {{ employee.tax_id_number }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Created At:</td>
+                    <td class="value"> {{ employee.created_at }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Modified At:</td>
+                    <td class="value"> {{ employee.modified_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

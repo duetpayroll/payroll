@@ -1,0 +1,8 @@
+{% extends 'duet_account/employee/detail_base.html' %}
+
+{% block employee_detail_content %}
+    <div class="panel panel-info">
+      <div class="panel-heading"> Close Operation Not Allowed</div>
+      <div class="panel-body">{{ object }} is needed to be freezed first to close it.</div>
+    </div>
+{% endblock %}

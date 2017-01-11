@@ -1,0 +1,30 @@
+{% extends 'duet_account_base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block content %}
+    <div class="section detail">
+        {% include "duet_account/employee/detailSection.html" %}
+         
+        
+    </div>
+    <div class="block">
+	    <div class="right">
+	    	{% if provident_fund_profile %}
+	    		<a class="btn btn-default" data-toggle='tooltip' tooltip='Edit GPF Profile'  href="{% url 'account:provident-fund-profile-update' pk=provident_fund_profile.pk %}">
+	                <span class='glyphicon glyphicon-pencil'></span> Edit GPF Profile
+	            </a>
+	            <a class="btn btn-default" data-toggle='tooltip' tooltip ='View GPF Monthly Subscription Log'  href="{% url 'account:provident-fund-profile-detail' pk=provident_fund_profile.pk %}">
+	                <span class='glyphicon glyphicon-th-large'></span> Monthly GPF Subscription Log
+	            </a>
+	            <a class="btn btn-default" data-toggle='tooltip' tooltip='View GPF Advance List'  href="{% url 'account:employee-gpf-advance-list' pk=provident_fund_profile.pk %}">
+	                <span class='glyphicon glyphicon-th-large'></span> View GPF Advance List
+	            </a>
+	    	{% else %}
+	    		<a class="btn btn-default" data-toggle='tooltip' tooltip='Create GPF Profile for this Employee'  href="{% url 'account:provident-fund-profile-create' pk=employee.pk %}">
+	                <span class='glyphicon glyphicon-plus'></span> Create GPF Profile
+	            </a>
+	    	{% endif %}
+	    </div>
+    </div>
+    {% include "common/list.html" %}
+{% endblock %}

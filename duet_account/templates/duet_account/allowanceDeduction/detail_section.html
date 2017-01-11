@@ -1,0 +1,52 @@
+<div class="panel panel-success section-detail">
+    <div class="panel-heading title">
+        <h4>
+            Detail -
+            <span class="object"> {{allowanceDeduction}}</span>
+        </h4>
+    </div>
+    <div class="panel-body table-container">
+        <table class="table">
+            <col class="label">
+            <col class="value">
+            <tbody>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td class="value"> {{ allowanceDeduction.name }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Code:</td>
+                    <td class="value"> {{ allowanceDeduction.code }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Description:</td>
+                    <td class="value"> {{ allowanceDeduction.description }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Category:</td>
+                    <td class="value"> {{ allowanceDeduction.get_category_display }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Percentage:</td>
+                    <td class="value"> {{ allowanceDeduction.is_percentage }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Applicable:</td>
+                    <td class="value"> {{ allowanceDeduction.is_applicable }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Payment Type:</td>
+                    <td class="value"> {{ allowanceDeduction.get_payment_type_display }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Created At:</td>
+                    <td class="value"> {{ allowanceDeduction.created_at }}</td>
+                </tr>
+                <tr>
+                    <td class="label">Last Modified At:</td>
+                    <td class="value"> {{ allowanceDeduction.modified_at }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

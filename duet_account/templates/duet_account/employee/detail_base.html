@@ -1,0 +1,93 @@
+{% extends 'duet_account_base.html' %}
+
+{% block content %}
+    {% load extras %}
+    <div class="panel panel-default">
+        <div class="section detail panel-heading ">
+            {% include "duet_account/employee/detailSection.html" %}
+        </div>
+        <div class='employee-detail-section panel-body'>
+            <div class='vertical-menu  col-sm-2'>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="{% active_url request 'configure-employee-allowance-deduction' %}" ><a
+                            href="
+    {% url 'duet_account:configure-employee-allowance-deduction' slug=employee.slug %}"><span class='glyphicon glyphicon-cog'></span> Configure Values</a></li>
+
+                    <li class="{% active_url request 'generate-salary-sheet' %}"><a href=
+                                                                                                  "{% url 'duet_account:generate-salary-sheet' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-usd'></span> Generate Salary Sheet</a></li>
+
+                    <li class="{% active_url request 'employee-detail' %}"><a href=
+                                                                                            "{% url 'duet_account:employee-detail' slug=employee.slug %}"><span class='glyphicon
+                     glyphicon-list'></span> Salary Sheets</a></li>
+
+                    <li class="{% active_url request 'salary-sheet-query' %}"><a href="
+{% url 'duet_account:salary-sheet-query' slug=employee.slug %}"><span
+                            class='glyphicon
+                    glyphicon-question-sign'></span> Salary Statement</a></li>
+
+                    <li id="employee-gpf" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                            class='glyphicon glyphicon-tasks'></span> G. Provident Fund <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                            <li parent_id="employee-gpf" class="{% active_url request 'provident-fund-profile-update' %}"><a href=
+                                                                                                          "{% url 'duet_account:provident-fund-profile-update' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-pencil'></span> Edit GPF Profile</a></li>
+
+                            <li parent_id="employee-gpf" class=
+                                    "{% active_url  request 'provident-fund-profile-detail' %}"><a href=
+                                                                                                          "{% url 'duet_account:provident-fund-profile-detail' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-list'></span> GPF Subscriptions</a></li>
+
+                            <li parent_id="employee-gpf" class="{% active_url request 'gpf-yearly-log' %}"><a href=
+                                                                                           "{% url 'duet_account:gpf-yearly-log' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-list'></span> GPF Yearly Log</a></li>
+
+                            <li parent_id="employee-gpf" class="{% active_url request 'create-gpf-yearly-log' %}"><a href="{% url 'duet_account:create-gpf-yearly-log' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-plus'></span> Create GPF Yearly Log</a></li>
+                            <li parent_id="employee-gpf" class="{% active_url request 'gpf-summary' %}"><a href="{% url 'duet_account:gpf-summary' slug=employee.slug %}"><span
+                            class='glyphicon glyphicon-question-sign'></span> GPF Summary</a></li>
+                        </ul>
+                    </li>
+                    <li id="employee-gpf-advance" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                            class='glyphicon glyphicon-tasks'></span> GPF Advance <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                           <li parent_id="employee-gpf-advance" class="{% active_url request 'gpf-advance-list' %}"><a href=
+                                                                                               "{% url 'duet_account:gpf-advance-list' slug=employee.slug %}"><span class='glyphicon
+                                glyphicon-list'></span> GPF Advances</a></li>
+
+                            <li parent_id="employee-gpf-advance" class="{% active_url request 'gpf-new-advance' %}"><a href="{% url 'duet_account:gpf-new-advance' slug=employee.slug %}"><span class='glyphicon glyphicon-plus'></span> New GPF Advance</a></li>
+                            <li parent_id="employee-gpf-advance" class="{% active_url request 'gpf_advance_summary' %}"><a href="{% url 'duet_account:gpf_advance_summary' slug=employee.slug %}"><span class='glyphicon glyphicon-question-sign'></span> GPF
+                                Advance Summary</a></li>
+                        </ul>
+                    </li>
+                    <li id="employee-home-loan" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                            class='glyphicon glyphicon-tasks'></span> Home Loan <span
+                                class="caret"></span></a>
+                        <ul class="dropdown-menu">
+
+                           <li parent_id="employee-home-loan" class="{% active_url request 'home-loan-list' %}"><a href=
+                                                                                               "{% url 'duet_account:home-loan-list' slug=employee.slug %}"><span class='glyphicon
+                                glyphicon-list'></span> Home Loan</a></li>
+
+                          <li parent_id="employee-home-loan" class="{% active_url request 'home-loan-create' %}"><a href=
+                                                                                            "{% url 'duet_account:home-loan-create' slug=employee.slug %}"><span class='glyphicon
+                    glyphicon-plus'></span> New Home Loan</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="employee-detail-content col-sm-10">
+                {% block employee_detail_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
